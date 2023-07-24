@@ -1,29 +1,27 @@
 import { useState } from "react";
 
-
 const IncomeTransaction = () => {
+  const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
 
-    const [amount, setAmount] = useState('');
-    const [description, setDescription] = useState('');
-  
-    const handleAmountChange = (e) => {
-      setAmount(e.target.value);
-    };
-  
-    const handleDescriptionChange = (e) => {
-      setDescription(e.target.value);
-    };
-  
-    const handleFormSubmit = (e) => {
-      e.preventDefault();
-      console.log('Income Transaction:', { amount, description });
-      setAmount('');
-      setDescription('');
-    };
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
 
-    return (
-        <div className="container mx-auto mt-8">
-                  <h2 className="text-2xl font-semibold mb-4">Income Transaction</h2>
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Income Transaction:", { amount, description });
+    setAmount("");
+    setDescription("");
+  };
+
+  return (
+    <div className="container mx-auto mt-8">
+      <h2 className="text-2xl font-semibold mb-4">Income Transaction</h2>
       <form onSubmit={handleFormSubmit} className="flex flex-col space-y-4">
         <div>
           <label className="block">Amount:</label>
@@ -50,8 +48,8 @@ const IncomeTransaction = () => {
           Add Income
         </button>
       </form>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default IncomeTransaction;
